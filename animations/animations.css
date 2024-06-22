@@ -1,0 +1,147 @@
+/* CSS Animation Collection - June 2024 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0f0f23;
+    color: white;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #00ff88;
+}
+
+.animation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.animation-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animation-item h3 {
+    margin-top: 2rem;
+    color: #00ff88;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(0, 255, 136, 0.3);
+    border-top: 4px solid #00ff88;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulse Effect */
+.pulse-dot {
+    width: 40px;
+    height: 40px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.pulse-dot::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid #ff6b6b;
+    border-radius: 50%;
+    animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Bounce Ball */
+.bounce-ball {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(-30px);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* Text Wave */
+.text-wave {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.text-wave span {
+    display: inline-block;
+    color: #00ff88;
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+.text-wave span:nth-child(1) { animation-delay: 0s; }
+.text-wave span:nth-child(2) { animation-delay: 0.1s; }
+.text-wave span:nth-child(3) { animation-delay: 0.2s; }
+.text-wave span:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
